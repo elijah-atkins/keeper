@@ -5,13 +5,12 @@ import Header from './component/Header';
 import notes from './notes';
 import './App.css';
 
-const createNotes = noteItem => {
-  return(
+const createNotes = (noteItem) => {
     <Note 
+    key={noteItem.key}
     title={noteItem.title}
     content={noteItem.content}
     />
-  )
 }
 
 function App() {
