@@ -3,13 +3,13 @@ import Footer from './component/Footer';
 import Note from './component/Note';
 import Form from './component/Form'
 import Header from './component/Header';
-import notes from './notes';
+//import notes from './notes';
 
 function App() {
 
-  const [list, setList] = useState( notes );
+  const [list, setList] = useState( [] );
 
-  const addNewNote = (note, index) =>{
+  const addNewNote = (note) =>{
 
     const newNote = {
       key: list.length+1,
