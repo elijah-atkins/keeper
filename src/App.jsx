@@ -3,21 +3,11 @@ import Footer from './component/Footer';
 import Note from './component/Note';
 import Form from './component/Form'
 import Header from './component/Header';
-//import notes from './notes';
+import notes from './notes';
 
 function App() {
 
-  const [list, setList] = useState( [] )
-  const createNotes = (noteItem) => {
-    return(
-      <Note 
-        deleteNote={deleteNote}
-        id={noteItem.id}
-        key={noteItem.key}
-        title={noteItem.title}
-        content={noteItem.content}
-    />)
-  }
+  const [list, setList] = useState( notes );
 
   const addNewNote = (note, index) =>{
 
@@ -42,7 +32,16 @@ function App() {
     <div className="App">
       <Header />
       <Form newNote={ addNewNote }/>
-      {list.map(createNotes)}
+      {list.map((noteItem, index) => {
+    return(
+      <Note 
+        deleteNote={deleteNote}
+        id={index}
+        key={index}
+        title={noteItem.title}
+        content={noteItem.content}
+    />)
+  })}
       <Footer />
     </div>
   );
