@@ -1,36 +1,39 @@
 import React, { useState } from 'react';
 
-const Form = () =>{
-    const [notes, setNotes] = useState({title: "", content: ""})
+const Form = ({ newNote }) => {
+    const [notes, setNotes] = useState({
+        title: "",
+        content: ""
+    })
 
     const handleChanges = event => {
-        setNotes({...notes, [event.target.title]: event.target.value})
+        const {name, value} = event.target;
+        setNotes({ ...notes, [name]: value })
     }
 
-    const submitForm = event =>{
+    const submitForm = event => {
         event.preventDefault();
-        //addNewNote(note);
-        setNotes({title: "", content: ""})
-
+        newNote(notes)
+        setNotes({ title: "", content: "" })
     }
-    return(
+    return (
         <form className="add-note" onSubmit={submitForm}>
 
             <input
                 id="title"
                 type="text"
                 placeholder="Title"
-                vale={notes.title}
+                value={notes.title}
                 name="title"
                 onChange={handleChanges} />
-       
+
             <textarea
                 id="content"
-                placeholder="Take a note"
-                vale={notes.content}
+                placeholder="Take a note..."
+                value={notes.content}
                 name="content"
                 onChange={handleChanges} />
-                <button>Add</button>
+            <button>Add</button>
         </form>
     )
 }

@@ -10,3 +10,12 @@ to show a copyright message in a <p> with a dynamically updated year.
 https://l1pp6.csb.app/
 
 //HINT: You will need to study the classes in teh styles.css file to appy styling.
+Implement the add note functionality.
+    pass the new note back to the app
+    add new note to an array
+    take array and render seperate Note components for each item
+
+implement the delete note functionality.
+    -callback from the Note component to trigger a delete function 
+    -use the filter function to filter out the item that needs deletion
+    -pass an id over to the Note component, pass it back to the App when deleting
